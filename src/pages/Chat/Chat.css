@@ -1,0 +1,6 @@
+.chat-layout {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(107, 168, 222);
+}
