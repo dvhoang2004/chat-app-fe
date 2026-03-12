@@ -11,6 +11,7 @@ import SettingsPage from "./pages/Settings/Settings"
 import { ChatProvider } from "./context/chatContext"
 import { InvitationProvider } from "./context/invitationContext"
 import { EventProvider } from './context/eventContext'
+import { DocumentProvider } from './context/documentContext'
 
 function App() {
   return (
@@ -52,7 +53,14 @@ function App() {
               </InvitationProvider>
             } 
           />
-          <Route path="/documents" element={<DocumentsPage />} />
+          <Route 
+            path="/documents" 
+            element={
+              <DocumentProvider>
+                <DocumentsPage />
+              </DocumentProvider>
+            } 
+          />
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </div>
