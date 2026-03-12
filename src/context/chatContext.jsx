@@ -74,8 +74,8 @@ export function ChatProvider({ children }) {
     markAsRead(id)
   }
 
-  const sendMessage = (text) => {
-    if (!text.trim()) return
+  const sendMessage = (text, file = null) => {
+    if (!text.trim() && !file) return
 
     const now = new Date()
     const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, "0")}`
@@ -92,6 +92,7 @@ export function ChatProvider({ children }) {
       date,
       time,
       isRead: true,
+      file: file ?? null
     }
 
     const updated = contacts.map(contact =>
