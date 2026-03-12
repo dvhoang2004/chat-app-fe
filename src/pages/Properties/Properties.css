@@ -1,0 +1,37 @@
+.properties-page {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.properties-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.properties-avatar-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.properties-page h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d2d3a;
+}
+
+.properties-page p {
+  font-size: 14px;
+  color: #6b6b6b;
+}
