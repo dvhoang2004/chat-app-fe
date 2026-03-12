@@ -1,0 +1,61 @@
+.settings-container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f5f7fa;
+}
+
+/* sidebar containing the option list */
+.settings-sidebar {
+  min-width: 220px;
+  max-width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-title {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.settings-options-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.settings-option {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  color: #555;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.settings-option:hover {
+  background-color: rgba(59, 91, 219, 0.08);
+  color: #3b5bdb;
+}
+
+.settings-option.active {
+  background-color: rgba(59, 91, 219, 0.18);
+  color: #3b5bdb;
+  font-weight: 600;
+  border-left: 4px solid #3b5bdb;
+}
+
+/* content area where the selected setting component renders */
+.settings-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  background-color: #f5f7fa;
+}

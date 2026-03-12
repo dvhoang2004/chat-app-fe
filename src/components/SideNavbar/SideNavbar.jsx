@@ -1,6 +1,7 @@
 import React from 'react'
 import './SideNavbar.css'
 import { NavLink } from "react-router-dom"
+import { useUserInfo } from '../../context/userInfoContext'
 import down from '../../assets/angle-down.webp' 
 import PropertiesIcon from "../../assets/home-home.svg?react"
 import ChatIcon from "../../assets/chat-square.svg?react"
@@ -11,6 +12,8 @@ import SettingsIcon from "../../assets/settings.svg?react"
 
 //Navbar
 const SideNavbar = () => {
+
+  const { user } = useUserInfo()
 
   const NAV_ITEMS = [
     {icon: <PropertiesIcon className="icon"/>, label: "Properties", id: "properties" },
@@ -25,8 +28,11 @@ const SideNavbar = () => {
     <div className="side-navbar">
       {/* User avatar */}
       <div className="avatar">
-        <img src="/vite.svg" alt="User Avatar" className='avatar-img'/>
-        <p>Hoang Doan</p>
+        {user.avatar
+          ? <img src={user.avatar} alt="avatar" className="avatar-img" />
+          : <div className="avatar-placeholder">{user.name.charAt(0)}</div>
+        }
+        <p className="sidebar-name">{user.name}</p>
         <img src={down} alt="Dropdown Icon" className="dropdown-icon" />
       </div>
 

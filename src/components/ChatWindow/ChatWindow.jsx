@@ -184,7 +184,7 @@ function ChatWindow({ contact }) {
           style={{ display: "none" }}
           onChange={handleFileSelect}
         />
-        <button className="attachment-btn" onClick={() => fileInputRef.current?.click()} title="Attach file">
+        <button className="attachment-btn" onClick={() => fileInputRef.current?.click()}>
           <img src={FileUpload} alt="" />
         </button>
         <button className="chat-send-btn" onClick={handleSend}>➤</button>
