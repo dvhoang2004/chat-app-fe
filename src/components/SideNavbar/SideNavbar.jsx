@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideNavbar.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { useUserInfo } from '../../context/userInfoContext'
 import down from '../../assets/angle-down.webp' 
 import PropertiesIcon from "../../assets/home-home.svg?react"
@@ -14,6 +14,7 @@ import SettingsIcon from "../../assets/settings.svg?react"
 const SideNavbar = () => {
 
   const { user } = useUserInfo()
+  const navigate = useNavigate()
 
   const NAV_ITEMS = [
     {icon: <PropertiesIcon className="icon"/>, label: "Properties", id: "properties" },
@@ -33,7 +34,21 @@ const SideNavbar = () => {
           : <div className="avatar-placeholder">{user.name.charAt(0)}</div>
         }
         <p className="sidebar-name">{user.name}</p>
-        <img src={down} alt="Dropdown Icon" className="dropdown-icon" />
+        {/* dropdown container for the arrow icon and menu */}
+        <div className="dropdown">
+          <img src={down} alt="Dropdown Icon" className="dropdown-icon" />
+          <ul className="dropdown-menu">
+            <li
+              className="dropdown-item"
+              onClick={() => navigate('/properties')}
+            >
+              Profile
+            </li>
+            <li className="dropdown-item">
+              Switch Account
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Navigation links */}
