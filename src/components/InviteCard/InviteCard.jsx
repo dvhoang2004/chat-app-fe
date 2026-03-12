@@ -1,5 +1,5 @@
 import './InviteCard.css'
-import { useInvitation } from '../../context/InvitationContext'
+import { useInvitation } from '../../context/invitationContext'
 
 const InviteCard = ({ id, from, date, message, status }) => {
   const { updateStatus } = useInvitation()

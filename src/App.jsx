@@ -4,12 +4,13 @@ import './App.css'
 import Navbar from './components/SideNavbar/SideNavbar'
 import ChatPage from "./pages/Chat/Chat"
 import PropertiesPage from "./pages/Properties/Properties"
-import CalendarPage from "./pages/Calendar/Calendar"
+import CalendarPage from "./pages/CalendarEvent/CalendarEvent"
 import OffersPage from "./pages/Offers/Offers"
 import DocumentsPage from "./pages/Documents/Documents"
 import SettingsPage from "./pages/Settings/Settings"
 import { ChatProvider } from "./context/chatContext"
-import { InvitationProvider } from './context/invitationContext'
+import { InvitationProvider } from "./context/invitationContext"
+import { EventProvider } from './context/eventContext'
 
 function App() {
   return (
@@ -35,7 +36,14 @@ function App() {
           />
           <Route path="/" element={<ChatPage />} />
           <Route path="/properties" element={<PropertiesPage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
+          <Route 
+            path="/calendar" 
+            element={
+              <EventProvider>
+                <CalendarPage />
+              </EventProvider>
+            } 
+          />
           <Route 
             path="/offers" 
             element={
