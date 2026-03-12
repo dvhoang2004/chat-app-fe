@@ -1,0 +1,91 @@
+/* invitation status styles */
+.invitation {
+  padding: 16px 20px;
+  border-radius: 12px;
+  border-width: 1.5px;
+  margin-bottom: 12px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.invitation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.invitation h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2d2d3a;
+  margin-bottom: 4px;
+}
+
+.invitation p {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin-bottom: 2px;
+}
+
+.invitation.pending {
+  background-color: #f8f8f8;
+  border-color: #d0d0d0;
+  border-style: solid;
+}
+
+.invitation.accepted {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  border-style: solid;
+}
+
+.invitation.rejected {
+  background-color: #ffebee;
+  border-color: #f44336;
+  border-style: solid;
+}
+
+
+/* for status pending -> action buttons */
+.invite-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-accept {
+  padding: 6px 16px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-accept:hover {
+  background: #388e3c;
+}
+
+.btn-reject {
+  padding: 6px 16px;
+  background: transparent;
+  color: #f44336;
+  border: 1.5px solid #f44336;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-reject:hover {
+  background: #ffebee;
+}
+
+.invite-status-label {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9b9baf;
+}

@@ -8,22 +8,6 @@
   height: fit-content;
 }
 
-/* Title + edit all icon */
-.user-info-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f0eef8;
-}
-
-.user-info-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #2d2d3a;
-}
-
 /* Avatar section */
 .avatar {
   display: flex;
@@ -91,6 +75,26 @@
   border-bottom: none;
 }
 
+/* label on left side of a row */
+.info-label {
+  font-size: 13px;
+  color: #9b9baf;
+  font-weight: 600;
+  flex-shrink: 0;
+  width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* container for the value and edit icon */
+.info-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0; /* allow text ellipsis if necessary */
+}
+
 .info-row p {
   font-size: 14px;
   color: #2d2d3a;
@@ -121,69 +125,4 @@
 textarea.info-input {
   min-height: 80px;
   line-height: 1.5;
-}
-
-/* Edit all form */
-.edit-all-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 8px;
-}
-
-.edit-all-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.edit-all-field label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #9b9baf;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-/* Buttons */
-.edit-all-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.btn-confirm {
-  padding: 9px 24px;
-  background: #6c5ce7;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-family: inherit;
-}
-
-.btn-confirm:hover {
-  background: #5a4bd1;
-}
-
-.btn-cancel {
-  padding: 9px 24px;
-  background: transparent;
-  color: #9b9baf;
-  border: 1.5px solid #e8e6f0;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
-}
-
-.btn-cancel:hover {
-  background: #f0eef8;
-  color: #6c5ce7;
-  border-color: #a29bfe;
 }

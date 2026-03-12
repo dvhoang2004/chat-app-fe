@@ -7,11 +7,8 @@ const UserInfo = () => {
   const { user, updateUser } = useUserInfo()
   const [editing, setEditing] = useState(null)
   const [tempValue, setTempValue] = useState("")
-  const [editingAll, setEditingAll] = useState(false)
-  const [tempAll, setTempAll] = useState({ name: "", role: "", description: "" })
   const avatarInputRef = useRef(null)
 
-  // single field edit
   const startEdit = (field) => {
     setEditing(field)
     setTempValue(user[field])
@@ -28,28 +25,6 @@ const UserInfo = () => {
     if (e.key === "Escape") setEditing(null)
   }
 
-  // edit all fields at once
-  const startEditAll = () => {
-    setTempAll({
-      name: user.name,
-      role: user.role,
-      description: user.description
-    })
-    setEditingAll(true)
-  }
-
-  const confirmEditAll = () => {
-    if (!tempAll.name.trim()) return
-    updateUser({
-      name: tempAll.name.trim(),
-      role: tempAll.role.trim(),
-      description: tempAll.description.trim()
-    })
-    setEditingAll(false)
-  }
-
-  const cancelEditAll = () => setEditingAll(false)
-
   const handleAvatarChange = (e) => {
     const file = e.target.files?.[0]
     if (!file) return
@@ -61,7 +36,7 @@ const UserInfo = () => {
   return (
     <div className="user-info">
 
-      {/* Title + edit all icon */}
+      {/* Title */}
       <div className="user-info-header">
         <p className="user-info-title">User Information</p>
       </div>
@@ -89,78 +64,50 @@ const UserInfo = () => {
         />
       </div>
 
-      {/* Edit all mode */}
-      {editingAll ? (
-        <div className="edit-all-form">
-          <div className="edit-all-field">
-            <label>Name</label>
-            <input
-              className="info-input"
-              value={tempAll.name}
-              onChange={e => setTempAll({ ...tempAll, name: e.target.value })}
-              autoFocus
-            />
-          </div>
-          <div className="edit-all-field">
-            <label>Role</label>
-            <input
-              className="info-input"
-              value={tempAll.role}
-              onChange={e => setTempAll({ ...tempAll, role: e.target.value })}
-            />
-          </div>
-          <div className="edit-all-field">
-            <label>Description</label>
-            <textarea
-              className="info-input"
-              value={tempAll.description}
-              onChange={e => setTempAll({ ...tempAll, description: e.target.value })}
-            />
-          </div>
-          <div className="edit-all-actions">
-            <button className="btn-confirm" onClick={confirmEditAll}>Save</button>
-            <button className="btn-cancel" onClick={cancelEditAll}>Cancel</button>
-          </div>
+      {/* Name */}
+      <div className="info-row">
+        <span className="info-label">Name</span>
+        <div className="info-field">
+          {editing === "name" ? (
+            <input className="info-input" value={tempValue}
+              onChange={e => setTempValue(e.target.value)}
+              onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
+          ) : (
+            <p>{user.name}</p>
+          )}
+          <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("name")} />
         </div>
-      ) : (
-        <>
-          {/* Name */}
-          <div className="info-row">
-            {editing === "name" ? (
-              <input className="info-input" value={tempValue}
-                onChange={e => setTempValue(e.target.value)}
-                onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
-            ) : (
-              <p>{user.name}</p>
-            )}
-            <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("name")} />
-          </div>
+      </div>
 
-          {/* Role */}
-          <div className="info-row">
-            {editing === "role" ? (
-              <input className="info-input" value={tempValue}
-                onChange={e => setTempValue(e.target.value)}
-                onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
-            ) : (
-              <p>{user.role}</p>
-            )}
-            <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("role")} />
-          </div>
+      {/* Role */}
+      <div className="info-row">
+        <span className="info-label">Role</span>
+        <div className="info-field">
+          {editing === "role" ? (
+            <input className="info-input" value={tempValue}
+              onChange={e => setTempValue(e.target.value)}
+              onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
+          ) : (
+            <p>{user.role}</p>
+          )}
+          <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("role")} />
+        </div>
+      </div>
 
-          {/* Description */}
-          <div className="info-row">
-            {editing === "description" ? (
-              <textarea className="info-input" value={tempValue}
-                onChange={e => setTempValue(e.target.value)}
-                onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
-            ) : (
-              <p>{user.description}</p>
-            )}
-            <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("description")} />
-          </div>
-        </>
-      )}
+      {/* Description */}
+      <div className="info-row">
+        <span className="info-label">Description</span>
+        <div className="info-field">
+          {editing === "description" ? (
+            <textarea className="info-input" value={tempValue}
+              onChange={e => setTempValue(e.target.value)}
+              onKeyDown={handleKey} onBlur={confirmEdit} autoFocus />
+          ) : (
+            <p>{user.description}</p>
+          )}
+          <img src={EditIcon} alt="Edit" className="edit-icon" onClick={() => startEdit("description")} />
+        </div>
+      </div>
 
     </div>
   )
