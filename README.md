@@ -1,4 +1,4 @@
-# Nexlab Chat
+# Chat Web/App
 
 A modern real estate chat application built with React and Vite.
 
@@ -10,6 +10,11 @@ A modern real estate chat application built with React and Vite.
 - Calendar, Documents, Properties, Offers management
 - Settings page
 - LocalStorage persistence
+- Event scheduling and management
+- Invitation system
+- Help and Support section
+- User profile management
+- Document sharing and context management
 
 ## Installation
 
@@ -26,14 +31,18 @@ npm run preview  # Preview build
 npm run lint     # Check code quality
 ```
 
+## Deployment
+
+This application is deployed using GitHub and Vercel. You can access the live version at: [https://chat-app-fe-pearl-nine.vercel.app/](https://chat-app-fe-pearl-nine.vercel.app/)
+
 ## Project Structure
 
 ```
 src/
-├── components/    # ChatList, ChatWindow, SideNavbar
-├── pages/         # Chat, Calendar, Documents, Properties, Offers, Settings
-├── context/       # Chat state management
-├── data/          # Contact data
+├── components/    # ChatList, ChatWindow, SideNavbar, ...
+├── pages/         # Chat, CalendarEvent, Documents, Properties, Offers, Settings
+├── context/       # Chat, document, event, invitation, user information state management
+├── data/          # Contact, Event, Invitation
 └── assets/        # Images and static files
 ```
 
